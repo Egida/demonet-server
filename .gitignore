@@ -3,3 +3,6 @@
 *.pem
 *.key
 __pycache__
+tailwind.config.js
+node_modules
+.env
