@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Socket Button Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+</head>
+
+<body>
+    <button id="sendButton">Send Message</button>
+    <button id="sendCommandButton">Send Command</button>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sendButton = document.getElementById('sendButton');
+            const sendCommandButton = document.getElementById('sendCommandButton');
+            const socket = io();
+
+            sendButton.addEventListener('click', function () {
+                const message = "Hello World!";
+                socket.emit('message', message);  // Send message to server
+            });
+
+            sendCommandButton.addEventListener('click', function () {
+                const command = "Go away!";
+                socket.emit('command', command);  // Send command to server
+            });
+
+
+            socket.on('response', function (response) {
+                console.log("Received response from server:", response);
+                // Handle the response from the server here
+            });
+        });
+    </script>
+</body>
+
+</html>

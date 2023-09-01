@@ -1,0 +1,5 @@
+.venv
+*.crt
+*.pem
+*.key
+__pycache__
